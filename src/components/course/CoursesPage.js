@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import {connect} from 'react-redux';
+import { bindActionCreators } from 'redux';
 import * as courseActions from '../../actions/courseActions';
 
 class CoursesPage extends React.Component {
@@ -21,9 +22,9 @@ class CoursesPage extends React.Component {
     this.setState({ course: course });
   }
 
-  onClickSave =(e) => {
+  onClickSave = (e) => {
     console.log('onClickSave')
-    this.props.dispatch(courseActions.createCourse(this.state.course));
+    this.props.actions.createCourse(this.state.course);
     // this needs to called to be able to fire off an action for redux to handle 
   }
 
@@ -52,9 +53,11 @@ class CoursesPage extends React.Component {
   }
 }
 
+// for prop type validation 
 CoursesPage.propTypes - {
-  dispatch: PropTypes.func.isRequired,
-  courses: PropTypes.array.isRequired
+  // dispatch: PropTypes.func.isRequired,
+  courses: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 }
 
 function mapStateToProps(state, ownProps) {
@@ -63,8 +66,15 @@ function mapStateToProps(state, ownProps) {
   };
 }
 
-// function mapDispatchToProps() {
-  // mapDispatchToProps   optional to be called in connect below 
-// }
+function mapDispatchToProps(dispatch) {
+  return {
+    // is all actions within the courseActions file
+    // you can bind a singular action by calling within the (courseAction.createCourse())
+    actions: bindActionCreators(courseActions, dispatch)
+    // the below is used if you do not import bindActionCreators from redux
+    // createCourse: course => dispatch(courseActions.createCourse(course))
+  } 
+}
 
-export default connect(mapStateToProps)(CoursesPage);
+// once you add mapDispatchToProps, the dispatch propery on componenets no longer exist
+export default connect(mapStateToProps, mapDispatchToProps)(CoursesPage);
