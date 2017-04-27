@@ -1,6 +1,6 @@
-import * as types from './actionTypes';
 // needed to attach to the mockApi, which simulates using a database 
 import courseApi from '../api/mockCourseApi';
+import * as types from './actionTypes';
 
 export function loadCoursesSuccess(courses) {
   return { type: types.LOAD_COURSES_SUCCESS, courses };
