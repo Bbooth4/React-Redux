@@ -18,7 +18,7 @@ const CourseForm = ({ course, allAuthors, onSave, placeholder, onChange, loading
         label="Author"
         value={course.authorId}
         onChange={onChange}
-        placeholder="Select Author"
+        defaultOption="Select Author"
         options={allAuthors}
         error={errors}
       />

@@ -14,7 +14,7 @@ import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 const store = configureStore();
 // displays the courses
 store.dispatch(loadCourses());
-store.dispath(loadAuthors());
+store.dispatch(loadAuthors());
 
 // IndexRoute is the defauled for the route it is within
 render (

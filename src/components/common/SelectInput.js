@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 
+// {} everything in here is passed down from the parent
 const SelectInput = ({ name, label, onChange, defaultOption, options, value, error }) => {
   return (
     <div className="form-group">
@@ -16,7 +17,7 @@ const SelectInput = ({ name, label, onChange, defaultOption, options, value, err
             return <option key={option.value} value={option.value}>{option.text}</option>;
           })}
         </select>
-        {error && <div classNAme="alert alert-danger">{error}</div>}
+        {error && <div className="alert alert-danger">{error}</div>}
       </div>
     </div>
   );

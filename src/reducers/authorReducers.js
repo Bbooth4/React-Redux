@@ -3,8 +3,8 @@ import initialState from './initialState';
 
 export default function courseReducers(state = initialState.authors, action) {
   switch(action.type) {
-    case types.LOAD_AUTHOR_SUCCESS:
-      return action.author; 
+    case types.LOAD_AUTHORS_SUCCESS:
+      return action.authors; 
     
     default:
       return state; 
