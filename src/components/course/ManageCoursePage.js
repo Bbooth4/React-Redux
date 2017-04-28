@@ -14,12 +14,24 @@ class ManageCoursePage extends React.Component {
     };
   }
 
-  render() {
-    // const { course } = this.state;
+  updateCourseState = (e) => {
+    const field = e.target.name;
+    let course = this.state.course;
+    course[field] = e.target.value;
+    return this.setState({ course: course }); 
+  }
 
+  saveCourse = (e) => {
+    e.preventDefault();
+    this.props.actions.saveCourse(this.state.course);
+  }
+
+  render() {
     return (
       <CourseForm
         allAuthors={this.props.authors}
+        onChange={this.updateCourseState}
+        onSave={this.saveCourse}
         course={this.state.course}
         errors={this.state.erors}
       />
@@ -29,7 +41,8 @@ class ManageCoursePage extends React.Component {
 
 ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired
+  authors: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state, ownProps) {
