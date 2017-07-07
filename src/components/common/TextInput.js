@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 
-const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
+const TextInput = ({name, label, onChange, placeholder, value, error}) => {
   let wrapperClass = 'form-group';
   if (error && error.length > 0) {
-    wrapperClass += " " + "has-error"; 
+    wrapperClass += " " + 'has-error';
   }
 
   return (
@@ -11,13 +11,12 @@ const TextInput = ({ name, label, onChange, placeholder, value, error }) => {
       <label htmlFor={name}>{label}</label>
       <div className="field">
         <input
-          className="form-control"
           type="text"
           name={name}
-          value={value}
+          className="form-control"
           placeholder={placeholder}
-          onChange={onChange}
-        />
+          value={value}
+          onChange={onChange}/>
         {error && <div className="alert alert-danger">{error}</div>}
       </div>
     </div>
@@ -33,4 +32,4 @@ TextInput.propTypes = {
   error: PropTypes.string
 };
 
-export default TextInput; 
+export default TextInput;

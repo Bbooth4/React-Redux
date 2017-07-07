@@ -1,5 +1,6 @@
+/* Styles */
 #app {
-  font: 14px 'Helvetica Neue', Arial, sans-serif;
+  font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   color: #4d4d4d;
   min-width: 550px;
   max-width: 850px;
@@ -7,9 +8,9 @@
 }
 
 a.active {
-  color: lightblue;
+  color: orange;
 }
 
 nav {
-  padding-top: 20px; 
+  padding-top: 20px;
 }

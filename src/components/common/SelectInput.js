@@ -1,21 +1,21 @@
-import React, { PropTypes } from 'react';
+import React, {PropTypes} from 'react';
 
-// {} everything in here is passed down from the parent
-const SelectInput = ({ name, label, onChange, defaultOption, options, value, error }) => {
+const SelectInput = ({name, label, onChange, defaultOption, value, error, options}) => {
   return (
     <div className="form-group">
       <label htmlFor={name}>{label}</label>
       <div className="field">
+        {/* Note, value is set here rather than on the option - docs: https://facebook.github.io/react/docs/forms.html */}
         <select
-          className="form-control"
           name={name}
           value={value}
           onChange={onChange}
-        >
+          className="form-control">
           <option value="">{defaultOption}</option>
           {options.map((option) => {
             return <option key={option.value} value={option.value}>{option.text}</option>;
-          })}
+          })
+          }
         </select>
         {error && <div className="alert alert-danger">{error}</div>}
       </div>
@@ -28,9 +28,9 @@ SelectInput.propTypes = {
   label: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,
   defaultOption: PropTypes.string,
-  options: PropTypes.arrayOf(PropTypes.object),
   value: PropTypes.string,
-  error: PropTypes.string
+  error: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.object)
 };
 
-export default SelectInput; 
+export default SelectInput;
