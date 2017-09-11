@@ -6,3 +6,12 @@ export function authorsFormattedForDropdown(authors) {
     };
   });
 }
+
+export function timersFormattedForDropdown(timers) {
+  return timers.map(timer => {
+    return {
+      value: timer.id,
+      text: `${timer.title} ${timer.name} ${timer.length}`
+    };
+  });
+}

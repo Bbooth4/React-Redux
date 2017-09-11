@@ -23,6 +23,12 @@ export default {
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoErrorsPlugin()
   ],
+  resolve: {
+    alias: {
+      'react': 'react-lite',
+      'react-dom': 'react-lite',
+    }
+  },
   module: {
     loaders: [
       {test: /\.js$/, include: path.join(__dirname, 'src'), loaders: ['babel']},
